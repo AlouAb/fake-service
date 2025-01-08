@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (user) {
             setCurrentUser(user);
             alert('Đăng nhập thành công!');
-            window.location.href = 'fake-cccd.html';
+            window.location.href = 'index.html';
         } else {
             alert('Email hoặc mật khẩu không chính xác!');
             passwordInput.value = ''; // Xóa mật khẩu đã nhập
