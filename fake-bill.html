@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạo Bill - Fake Service</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/fake-bill.css">
+</head>
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="./index.html">
+                <img src="./images/logo.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+                Fake Bill
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <span class="nav-link" id="userGreeting"></span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./service.html">Dịch vụ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="handleLogout()">Đăng xuất</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Bank List Section -->
+    <div class="bank-container py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Chọn Ngân Hàng</h2>
+            <div class="row g-4">
+                <!-- MB Bank -->
+                <div class="col-md-4">
+                    <div class="bank-card">
+                        <img src="./assets/banks/mbbank.jpg" alt="MB Bank" class="bank-logo">
+                        <h5>MB Bank</h5>
+                        <a href="/assets/banks/mbbank.jpg" class="btn btn-primary">Tạo Bill</a>
+                    </div>
+                </div>
+                
+                <!-- Techcombank -->
+                <div class="col-md-4">
+                    <div class="bank-card">
+                        <img src="./assets/banks/techcombank.jpg" alt="Techcombank" class="bank-logo">
+                        <h5>Techcombank</h5>
+                        <a href="/assets/banks/techcombank.jpg" class="btn btn-primary">Tạo Bill</a>
+                    </div>
+                </div>
+
+                <!-- VietcomBank -->
+                <div class="col-md-4">
+                    <div class="bank-card">
+                        <img src="./assets/banks/vietcombank.jpg" alt="VietcomBank" class="bank-logo">
+                        <h5>VietcomBank</h5>
+                        <a href="/assets/banks/vietcombank.jpg" class="btn btn-primary">Tạo Bill</a>
+                    </div>
+                </div>
+
+                <!-- ACB -->
+                <div class="col-md-4">
+                    <div class="bank-card">
+                        <img src="./assets/banks/acb.jpg" alt="ACB" class="bank-logo">
+                        <h5>ACB</h5>
+                        <a href="/assets/banks/acb.jpg" class="btn btn-primary">Tạo Bill</a>
+                    </div>
+                </div>
+
+                <!-- BIDV -->
+                <div class="col-md-4">
+                    <div class="bank-card">
+                        <img src="./assets/banks/bidv.jpg" alt="BIDV" class="bank-logo">
+                        <h5>BIDV</h5>
+                        <a href="/assets/banks/bidv.jpg" class="btn btn-primary">Tạo Bill</a>
+                    </div>
+                </div>
+
+                <!-- VPBank -->
+                <div class="col-md-4">
+                    <div class="bank-card">
+                        <img src="./assets/banks/vpbank.jpg" alt="VPBank" class="bank-logo">
+                        <h5>VPBank</h5>
+                        <a href="/assets/banks/vpbank.jpg" class="btn btn-primary">Tạo Bill</a>
+                    </div>
+                </div>
+
+                <!-- TPBank -->
+                <div class="col-md-4">
+                    <div class="bank-card">
+                        <img src="./assets/banks/tpbank.jpg" alt="TPBank" class="bank-logo">
+                        <h5>TPBank</h5>
+                        <a href="/assets/banks/tpbank.jpg" class="btn btn-primary">Tạo Bill</a>
+                    </div>
+                </div>
+
+                <!-- Agribank -->
+                <div class="col-md-4">
+                    <div class="bank-card">
+                        <img src="./assets/banks/agribank.jpg" alt="Agribank" class="bank-logo">
+                        <h5>Agribank</h5>
+                        <a href="/assets/banks/agribank.jpg" class="btn btn-primary">Tạo Bill</a>
+                    </div>
+                </div>
+
+                <!-- VietinBank -->
+                <div class="col-md-4">
+                    <div class="bank-card">
+                        <img src="./assets/banks/vietinbank.jpg" alt="VietinBank" class="bank-logo">
+                        <h5>VietinBank</h5>
+                        <a href="/assets/banks/vietinbank.jpg" class="btn btn-primary">Tạo Bill</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/fake-bill.js"></script>
+</body>
+</html>
