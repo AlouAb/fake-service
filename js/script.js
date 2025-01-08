@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const navbarNav = document.getElementById('navbarNav');
     
     if (currentUser) {
-        // Đã đăng nhập
+        // Chỉ cập nhật UI, không redirect
         navbarNav.innerHTML = `
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
