@@ -1,0 +1,81 @@
+.login-container {
+    min-height: calc(100vh - 76px);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 50px 0;
+}
+
+.login-form-container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-control:focus {
+    border-color: #764ba2;
+    box-shadow: 0 0 0 0.2rem rgba(118, 75, 162, 0.25);
+}
+
+.btn-primary {
+    background-color: #764ba2;
+    border-color: #764ba2;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #5f3d82;
+    border-color: #5f3d82;
+    transform: translateY(-2px);
+}
+
+.form-check-input:checked {
+    background-color: #764ba2;
+    border-color: #764ba2;
+}
+
+.input-group .btn-outline-secondary {
+    border-color: #ced4da;
+}
+
+.input-group .btn-outline-secondary:hover {
+    background-color: #f8f9fa;
+    border-color: #ced4da;
+}
+
+/* Animation cho form */
+.login-form-container {
+    animation: slideUp 0.5s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hover effects cho links */
+a {
+    color: #764ba2;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #5f3d82;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .login-container {
+        padding: 20px;
+    }
+    
+    .login-form-container {
+        padding: 20px;
+    }
+}
