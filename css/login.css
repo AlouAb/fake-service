@@ -1,0 +1,93 @@
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1a1a2e;
+    padding: 2rem;
+}
+
+.login-box {
+    background: #2a2a3c;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-box h2 {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    color: #a2a3b7;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background: #1e1e2d;
+    border: 1px solid #2d2d3f;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+.form-group input:focus {
+    border-color: #ff4444;
+    outline: none;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 1rem;
+    background: #ff4444;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+    background: #ff6666;
+}
+
+.form-links {
+    margin-top: 1.5rem;
+    text-align: center;
+    color: #a2a3b7;
+}
+
+.form-links a {
+    color: #ff4444;
+    text-decoration: none;
+}
+
+.form-links a:hover {
+    text-decoration: underline;
+}
+
+.forgot-password {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+/* Toast và Loading styles (copy từ fake-bill.css) */
+.toast,
+.loading-overlay {
+    /* ... */
+} 
