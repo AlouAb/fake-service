@@ -101,3 +101,34 @@ footer {
         justify-content: center;
     }
 }
+
+/* Service page styles */
+.service-container {
+    min-height: calc(100vh - 76px);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.service-container .card {
+    transition: transform 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.service-container .card:hover {
+    transform: translateY(-5px);
+}
+
+.service-container .card-body {
+    padding: 2rem;
+}
+
+.service-container h2 {
+    color: white;
+    margin-bottom: 2rem;
+}
+
+#userName {
+    font-weight: bold;
+    color: #ffd700;
+}
