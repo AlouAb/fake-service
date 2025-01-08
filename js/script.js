@@ -19,5 +19,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function handleLogout() {
     logout();
-    window.location.href = 'index.html';
+    window.location.href = './index.html';
 }
