@@ -88,10 +88,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Khởi tạo giá trị mặc định
-    document.getElementById('previewAmount').textContent = "545,454,545";
-    document.getElementById('previewReceiverName').textContent = "HOANG THIEN TUNG";
-    document.getElementById('previewBankInfo').textContent = "MBBank (MB) - 565656565";
-    document.getElementById('previewDescription').textContent = "VI VAN LUC chuyen tien";
+    document.getElementById('previewAmount').textContent = "999,999,999";
+    document.getElementById('previewReceiverName').textContent = "TEN NGUOI NHAN";
+    document.getElementById('previewBankInfo').textContent = "Lio Bank (LIO) - 9990990999";
+    document.getElementById('previewDescription').textContent = "NOI DUNG chuyen tien";
 
     // Cập nhật select ngân hàng trong HTML
     const bankSelect = document.getElementById('bankName');
