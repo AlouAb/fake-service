@@ -1,131 +1,122 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Lấy tất cả các input và select
-    const inputs = document.querySelectorAll('input, select');
-    
-    // Thêm event listener cho mỗi input để cập nhật realtime
-    inputs.forEach(input => {
-        ['input', 'change', 'keyup'].forEach(event => {
-            input.addEventListener(event, updatePreview);
-        });
-    });
-
-    // Cập nhật preview lần đầu
-    updatePreview();
-
-    const bankSelect = document.getElementById('bankName');
-    console.log('bankSelect:', bankSelect);
-
-    const bankLogo = document.getElementById('bankLogo');
-    console.log('bankLogo:', bankLogo);
-
-    const bankNameDisplay = document.getElementById('bankNameDisplay');
-    console.log('bankNameDisplay:', bankNameDisplay);
-
-    // Object chứa đường dẫn logo của các ngân hàng
-    const bankLogos = {
-        'Vietcombank': 'assets/banks/vietcombank.png',
-        'BIDV': 'assets/banks/bidv.png',
-        'Techcombank': 'assets/banks/techcombank.png',
-        'ACB': 'assets/banks/acb.png',
-        'MB Bank': 'assets/banks/mbbank.png'
+    const inputs = {
+        amount: document.getElementById('amount'),
+        receiverName: document.getElementById('receiverName'),
+        accountNumber: document.getElementById('accountNumber'),
+        bankName: document.getElementById('bankName'),
+        description: document.getElementById('description'),
+        time: document.getElementById('time'),
+        cornerTime: document.getElementById('cornerTime')
     };
 
-    // Chỉ thực hiện khi tìm thấy tất cả các phần tử
-    if (bankSelect && bankLogo && bankNameDisplay) {
-        bankSelect.addEventListener('change', function() {
-            try {
-                const selectedOption = this.options[this.selectedIndex];
-                const logoPath = selectedOption.getAttribute('data-logo');
-                
-                console.log('Selected bank:', this.value);
-                console.log('Logo path:', logoPath);
-                
-                if (logoPath) {
-                    bankLogo.src = logoPath;
-                    bankLogo.style.display = 'inline-block';
-                }
-                
-                bankNameDisplay.textContent = this.value + ' -';
-            } catch (error) {
-                console.error('Lỗi khi cập nhật:', error);
-            }
-        });
+    // Xử lý input số tiền
+    inputs.amount.addEventListener('input', function() {
+        const amount = formatMoney(this.value);
+        document.getElementById('previewAmount').textContent = amount;
+    });
 
-        // Kích hoạt sự kiện change
-        bankSelect.dispatchEvent(new Event('change'));
-    } else {
-        console.error('Thiếu một hoặc nhiều phần tử HTML cần thiết:', {
-            'bankSelect exists': !!bankSelect,
-            'bankLogo exists': !!bankLogo,
-            'bankNameDisplay exists': !!bankNameDisplay
-        });
+    // Xử lý input tên người nhận
+    inputs.receiverName.addEventListener('input', function() {
+        document.getElementById('previewReceiverName').textContent = 
+            this.value.toUpperCase();
+    });
+
+    // Xử lý input số tài khoản
+    inputs.accountNumber.addEventListener('input', function() {
+        document.getElementById('previewAccountNumber').textContent = this.value;
+    });
+
+    // Xử lý thay đổi thời gian
+    inputs.time.addEventListener('input', function() {
+        document.querySelector('.date-text').textContent = this.value;
+    });
+
+    // Xử lý thay đổi thời gian góc
+    inputs.cornerTime.addEventListener('input', function() {
+        document.querySelector('.time-text').textContent = this.value;
+    });
+
+    // Xử lý thay đổi ngân hàng
+    inputs.bankName.addEventListener('change', function() {
+        const selectedOption = this.options[this.selectedIndex];
+        const bankName = selectedOption.value;
+        const logoFile = selectedOption.dataset.logo;
+        
+        // Cập nhật logo và tên ngân hàng trong form
+        document.getElementById('selectedBankLogo').src = `assets/banks/${logoFile}`;
+        document.getElementById('selectedBankName').textContent = bankName;
+        
+        // Cập nhật preview
+        document.getElementById('previewBankLogo').src = `assets/banks/${logoFile}`;
+        document.getElementById('bankNameDisplay').textContent = bankName;
+    });
+
+    // Xử lý input nội dung
+    inputs.description.addEventListener('input', function() {
+        document.getElementById('previewDescription').textContent = 
+            `${this.value} chuyen tien`;
+    });
+
+    // Hàm cập nhật thông tin ngân hàng trong preview
+    function updateBankInfo() {
+        const selectedOption = inputs.bankName.options[inputs.bankName.selectedIndex];
+        const logoFile = selectedOption.dataset.logo;
+        const bankName = selectedOption.value;
+        const bankCode = getBankCode(bankName);
+        
+        // Cập nhật logo và text trong preview bill
+        const previewLogo = document.getElementById('bankLogoPreview');
+        const previewInfo = document.getElementById('previewBankInfo');
+        
+        previewLogo.src = `assets/banks/${logoFile}`;
+        previewInfo.textContent = `${bankName} (${bankCode}) - MF991563`;
     }
+
+    // Hàm lấy mã ngân hàng
+    function getBankCode(bankName) {
+        const bankCodes = {
+            'MB Bank': 'MB',
+            'Vietcombank': 'VCB',
+            'BIDV': 'BIDV',
+            'Techcombank': 'TCB',
+            'ACB': 'ACB',
+            'VPBank': 'VPB',
+            'TPBank': 'TPB',
+            'Agribank': 'AGR'
+        };
+        return bankCodes[bankName] || 'MB';
+    }
+
+    // Khởi tạo giá trị mặc định
+    document.getElementById('previewAmount').textContent = "545,454,545";
+    document.getElementById('previewReceiverName').textContent = "HOANG THIEN TUNG";
+    document.getElementById('previewBankInfo').textContent = "MBBank (MB) - 565656565";
+    document.getElementById('previewDescription').textContent = "VI VAN LUC chuyen tien";
+
+    // Cập nhật select ngân hàng trong HTML
+    const bankSelect = document.getElementById('bankName');
+    bankSelect.innerHTML = `
+        <option value="MB Bank" data-logo="mbbank-mini.png">MB Bank</option>
+        <option value="Vietcombank" data-logo="vietcombank-mini.png">Vietcombank</option>
+        <option value="BIDV" data-logo="bidv-mini.png">BIDV</option>
+        <option value="Techcombank" data-logo="techcombank-mini.png">Techcombank</option>
+        <option value="ACB" data-logo="acb-mini.png">ACB</option>
+        <option value="VPBank" data-logo="vpbank-mini.png">VPBank</option>
+        <option value="TPBank" data-logo="tpbank-mini.png">TPBank</option>
+        <option value="Agribank" data-logo="agribank-mini.png">Agribank</option>
+    `;
 });
 
 function formatMoney(amount) {
-    // Xóa tất cả ký tự không phải số
     amount = amount.replace(/[^\d]/g, '');
-    // Thêm dấu phẩy sau mỗi 3 số
     return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-function updatePreview() {
-    // Cập nhật số tiền
-    const amount = document.getElementById('amount').value || '';
-    const formattedAmount = formatMoney(amount);
-    document.getElementById('previewAmount').textContent = formattedAmount + ' VND';
-
-    // Cập nhật tên người nhận
-    const receiverName = document.getElementById('receiverName').value || '';
-    document.getElementById('previewReceiverName').textContent = receiverName.toUpperCase();
-
-    // Cập nhật thông tin ngân hàng và số tài khoản
-    const bankName = document.getElementById('bankName').value;
-    const accountNumber = document.getElementById('accountNumber').value || '';
-    document.getElementById('previewBankInfo').textContent = `${bankName} - ${accountNumber}`;
-
-    // Cập nhật nội dung chuyển khoản
-    const description = document.getElementById('description').value || '';
-    document.getElementById('previewDescription').textContent = description;
-
-    // Cập nhật thời gian
-    const time = document.getElementById('time').value;
-    if (time) {
-        const [timeStr, dateStr] = time.split(' - ');
-        document.getElementById('previewTime').textContent = timeStr;
-        document.getElementById('previewDate').textContent = time;
-    }
-}
-
-// Thêm sự kiện input cho trường số tiền để format realtime
-document.getElementById('amount').addEventListener('input', function(e) {
-    let value = e.target.value;
-    // Chỉ giữ lại số
-    value = value.replace(/[^\d]/g, '');
-    // Format với dấu phẩy
-    if (value) {
-        value = formatMoney(value);
-    }
-    e.target.value = value;
-});
-
-// Thêm sự kiện input cho trường tên để tự động viết hoa
-document.getElementById('receiverName').addEventListener('input', function(e) {
-    e.target.value = e.target.value.toUpperCase();
-});
-
 function downloadBill() {
-    // Lấy phần tử chứa bill
-    const billElement = document.querySelector('.bill-container');
-    
-    // Chuyển đổi phần tử thành hình ảnh
-    html2canvas(billElement).then(canvas => {
-        // Tạo link tải xuống
+    html2canvas(document.querySelector('.bill-container')).then(canvas => {
         const link = document.createElement('a');
         link.download = 'mbbank-bill.png';
-        link.href = canvas.toDataURL('image/png');
-        
-        // Trigger click để tải xuống
+        link.href = canvas.toDataURL();
         link.click();
     });
 }

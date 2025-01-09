@@ -48,28 +48,32 @@
 
                     <div class="form-group">
                         <label>Ngân hàng</label>
-                        <select class="form-control" id="bankName">
-                            <option value="BIDV" data-logo="assets/banks/minibidv.png">BIDV</option>
-                            <option value="Vietcombank" data-logo="assets/banks/minivietcombank.png">Vietcombank</option>
-                            <option value="Techcombank" data-logo="assets/banks/minitechcombank.png">Techcombank</option>
-                            <option value="ACB" data-logo="assets/banks/miniacb.png">ACB</option>
-                            <option value="MB Bank" data-logo="assets/banks/minimbbank.png">MB Bank</option>
-                            <option value="Agribank" data-logo="assets/banks/miniagribank.png">Agribank</option>
-                            <option value="VPBank" data-logo="assets/banks/minivpbank.png">VPBank</option>
-                            <option value="TPBank" data-logo="assets/banks/minitpbank.png">TPBank</option>
-                            <option value="OCB" data-logo="assets/banks/miniocb.png">OCB</option>
-                            <option value="VIB" data-logo="assets/banks/minivib.png">VIB</option>
-                            <option value="SHB" data-logo="assets/banks/minishb.png">SHB</option>
-                            <option value="MSB" data-logo="assets/banks/minimsb.png">MSB</option>
-                            <option value="SCB" data-logo="assets/banks/miniscb.png">SCB</option>
-                            <option value="Sacombank" data-logo="assets/banks/minisacombank.png">Sacombank</option>
-                            <option value="HDBank" data-logo="assets/banks/minihdb.png">HDBank</option>
-                        </select>
+                        <div class="bank-select">
+                            <select class="form-control" id="bankName">
+                                <option value="MB Bank" data-logo="mbbank-mini.png">MB Bank</option>
+                                <option value="Vietcombank" data-logo="vietcombank-mini.png">Vietcombank</option>
+                                <option value="BIDV" data-logo="bidv-mini.png">BIDV</option>
+                                <option value="Techcombank" data-logo="techcombank-mini.png">Techcombank</option>
+                                <option value="ACB" data-logo="acb-mini.png">ACB</option>
+                                <option value="VPBank" data-logo="vpbank-mini.png">VPBank</option>
+                                <option value="TPBank" data-logo="tpbank-mini.png">TPBank</option>
+                                <option value="Agribank" data-logo="agribank-mini.png">Agribank</option>
+                            </select>
+                            <div class="selected-bank">
+                                <img id="selectedBankLogo" src="assets/banks/mbbank-mini.png" alt="Selected Bank">
+                                <span id="selectedBankName">MB Bank</span>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="form-group">
                         <label>Nội dung chuyển khoản</label>
                         <input type="text" class="form-control" id="description" value="MF991563">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Thời gian góc</label>
+                        <input type="text" class="form-control" id="cornerTime" value="3:52">
                     </div>
 
                     <div class="form-group">
@@ -88,18 +92,26 @@
             <div class="preview-section">
                 <div class="preview-container">
                     <div class="bill-container">
-                        <!-- Hình nền -->
-                        <img src="assets/Background/mbbank-bg.jpg" class="bill-background" alt="Bill background">
+                        <!-- Hình nền bill -->
+                        <img src="assets/bill-bg.jpg" class="bill-background" alt="Bill background">
                         
-                        <!-- Text Overlay -->
+                        <!-- Text overlay -->
                         <div class="bill-text-overlay">
-                            <div class="amount-text" id="previewAmount"></div>
-                            <div class="time-text" id="previewTime"></div>
-                            <div class="date-text" id="previewDate"></div>
-                            <div class="receiver-name" id="previewReceiverName"></div>
-                            <div class="bank-info" id="previewBankInfo"></div>
-                            <div class="description" id="previewDescription"></div>
-                            <div class="transaction-id" id="previewTransactionId"></div>
+                            <div class="time-text">3:52</div>
+                            <div class="amount-text">
+                                <span id="previewAmount">545,454,545</span>
+                                <span>VND</span>
+                            </div>
+                            <div class="date-text">03:52 - 09/01/2025</div>
+                            <div class="receiver-name" id="previewReceiverName">VI VAN LUC</div>
+                            <div class="bank-info">
+                                <div class="bank-preview">
+                                    <img id="previewBankLogo" src="assets/banks/acb-mini.png" alt="Bank Logo">
+                                    <span id="bankNameDisplay">ACB</span>
+                                    <span id="previewAccountNumber"></span>
+                                </div>
+                            </div>
+                            <div class="description" id="previewDescription">VI VAN LUC chuyen tien</div>
                         </div>
                     </div>
                 </div>
