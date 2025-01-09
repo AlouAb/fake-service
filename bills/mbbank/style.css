@@ -1,38 +1,17 @@
 /* Layout chính */
 .container-fluid {
     display: flex;
-    min-height: 100vh;
-    background: #f8f9fa;
+    min-height: calc(100vh - 56px);
 }
 
-/* Form section bên trái */
+/* Form section */
 .form-section {
-    width: 50%;
-    padding: 30px 40px;
+    width: 35%;
+    padding: 30px;
     background: white;
-    overflow-y: auto;
     border-right: 1px solid #eee;
-    height: calc(100vh - 56px);
-    position: fixed;
-    left: 0;
-    top: 56px;
 }
 
-/* Form header */
-.form-header {
-    margin-bottom: 30px;
-    padding-bottom: 15px;
-    border-bottom: 2px solid #eee;
-}
-
-.form-header h3 {
-    color: #1555b6;
-    font-size: 24px;
-    font-weight: 600;
-    margin: 0;
-}
-
-/* Form controls */
 .form-group {
     margin-bottom: 20px;
 }
@@ -40,55 +19,31 @@
 .form-group label {
     display: block;
     margin-bottom: 8px;
-    color: #1A1A1A;
     font-weight: 500;
-    font-size: 14px;
 }
 
-.form-group .required {
-    color: #dc3545;
-    margin-left: 4px;
+.required {
+    color: red;
 }
 
-.form-control {
-    width: 100%;
-    padding: 10px 12px;
-    font-size: 14px;
-    border: 1px solid #ced4da;
-    border-radius: 6px;
-    transition: all 0.2s;
-}
-
-.form-control:focus {
-    border-color: #1555b6;
-    box-shadow: 0 0 0 0.2rem rgba(21, 85, 182, 0.25);
-}
-
-/* Preview section bên phải */
+/* Preview section */
 .preview-section {
-    width: 50%;
-    background-color: #f8f9fa;
+    width: 65%;
     padding: 30px;
-    position: fixed;
-    right: 0;
-    top: 56px;
-    bottom: 0;
-    overflow-y: auto;
+    background: #f8f9fa;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .preview-container {
-    max-width: 390px;
-    margin: 0 auto;
+    width: 430px;
 }
 
-/* Bill container */
 .bill-container {
     position: relative;
-    width: 390px;
-    height: 844px;
+    width: 100%;
+    height: 930px;
     background: white;
     border-radius: 20px;
     overflow: hidden;
@@ -101,13 +56,85 @@
     object-fit: cover;
 }
 
+/* Text overlay */
+.bill-text-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.bill-text-overlay > div {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+/* Vị trí các text element */
+.amount-text {
+    top: 253px;
+    font-size: 35px;
+    font-weight: 700;
+    color: #1555b6;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.time-text {
+    top: 22px;
+    left: 20px !important;
+    width: auto !important;
+    font-size: 15px;
+    color: #000;
+    text-align: left;
+    transform: none;
+}
+
+.date-text {
+    top: 302px;
+    font-size: 15px;
+    color: #57606A;
+}
+
+.receiver-name {
+    top: 385px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.bank-info {
+    top: 429px;
+    font-size: 16px;
+    color: #57606A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.description {
+    top: 462px;
+    font-size: 16px;
+    color: #57606A;
+}
+
+.transaction-id {
+    top: 506px;
+    font-size: 15px;
+    color: #000;
+}
+
 /* Responsive */
 @media (max-width: 1200px) {
     .form-section {
-        width: 45%;
+        width: 40%;
     }
     .preview-section {
-        width: 55%;
+        width: 60%;
     }
 }
 
@@ -118,159 +145,27 @@
 
     .form-section {
         width: 100%;
-        position: relative;
-        height: auto;
-        top: 0;
-        padding: 20px;
         border-right: none;
         border-bottom: 1px solid #eee;
     }
 
     .preview-section {
         width: 100%;
-        position: relative;
-        top: 0;
-        padding: 20px;
     }
 
     .preview-container {
+        width: 100%;
+        max-width: 430px;
         margin: 20px auto;
     }
 }
 
-/* Buttons */
-.btn-group {
-    margin-top: 30px;
+/* Style cho input */
+.form-control {
+    transition: border-color 0.2s ease;
 }
 
-.btn {
-    padding: 10px 24px;
-    font-size: 14px;
-    font-weight: 500;
-    border-radius: 6px;
-    transition: all 0.2s;
-}
-
-.btn-primary {
-    background: #1555b6;
-    border: none;
-    color: white;
-}
-
-.btn-primary:hover {
-    background: #1247a3;
-}
-
-.btn-secondary {
-    background: #e9ecef;
-    border: none;
-    color: #495057;
-}
-
-.btn-secondary:hover {
-    background: #dde1e5;
-}
-
-/* Text overlay positions */
-.bill-text-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-}
-
-.bill-text-overlay > div {
-    position: absolute;
-    width: 100%;
-    text-align: center;
-}
-
-/* Số tiền */
-.amount-text {
-    top: 230px;
-    font-size: 32px;
-    font-weight: 700;
-    color: #1555b6;
-}
-
-/* Thời gian */
-.time-text {
-    top: 20px;
-    left: 20px !important;
-    width: auto !important;
-    font-size: 14px;
-    color: #000;
-    text-align: left;
-    position: absolute;
-}
-
-/* Ngày tháng */
-.date-text {
-    top: 275px;
-    font-size: 14px;
-    color: #57606A;
-}
-
-/* Tên người nhận */
-.receiver-name {
-    top: 350px;
-    font-size: 18px;
-    font-weight: 600;
-    color: #000;
-    text-transform: uppercase;
-}
-
-/* Thông tin ngân hàng */
-.bank-info {
-    top: 390px;
-    font-size: 15px;
-    color: #57606A;
-}
-
-/* Nội dung chuyển khoản */
-.description {
-    top: 420px;
-    font-size: 15px;
-    color: #57606A;
-}
-
-/* Mã giao dịch */
-.transaction-id {
-    top: 460px;
-    font-size: 14px;
-    color: #000;
-}
-
-.bank-option {
-    display: flex;
-    align-items: center;
-    padding: 5px;
-}
-
-.bank-option img {
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
-    object-fit: contain;
-}
-
-.flatpickr-input {
-    background-color: white !important;
-    cursor: pointer;
-}
-
-.flatpickr-calendar {
-    font-size: 14px;
-}
-
-.transaction-info {
-    font-size: 14px;
-    color: #666;
-    margin: 10px 0;
-}
-
-.transaction-info span {
-    margin-right: 10px;
+.form-control:focus {
+    border-color: #1555b6;
+    box-shadow: 0 0 0 0.2rem rgba(21, 85, 182, 0.25);
 }

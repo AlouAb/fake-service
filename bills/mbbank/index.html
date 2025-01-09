@@ -5,52 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MB Bank Bill - Fake Service</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../../css/styles.css">
     <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 <body>
     <!-- Header -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="../../fake-bill.html">
+            <a class="navbar-brand" href="../../index.html">
                 <img src="../../assets/banks/mbbank.jpg" alt="MB Bank Logo" width="30" height="30" class="d-inline-block align-text-top rounded">
                 MB Bank Bill
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <span class="nav-link" id="userGreeting"></span>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="../../fake-bill.html">Quay lại</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="handleLogout()">Đăng xuất</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Main Content -->
     <div class="container-fluid">
         <div class="row">
             <!-- Form Section -->
             <div class="form-section">
-                <div class="form-header">
-                    <h3>Tạo Bill MB Bank</h3>
-                </div>
-
                 <form id="billForm">
                     <div class="form-group">
                         <label>Số tiền <span class="required">*</span></label>
-                        <input type="text" class="form-control" id="amount" placeholder="Nhập số tiền chuyển khoản" required>
+                        <input type="text" class="form-control" id="amount" placeholder="Nhập số tiền" required>
                     </div>
 
                     <div class="form-group">
@@ -59,76 +41,46 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Tài khoản nhận <span class="required">*</span></label>
-                        <input type="text" class="form-control" id="receiverAccount" placeholder="Nhập số tài khoản" required>
+                        <label>Số tài khoản <span class="required">*</span></label>
+                        <input type="text" class="form-control" id="accountNumber" placeholder="Nhập số tài khoản" required>
                     </div>
 
                     <div class="form-group">
-                        <label>Thời gian giao dịch</label>
-                        <input type="text" class="form-control" id="transactionTime" value="03:01 - 09/01/2025">
-                    </div>
-
-                    <div class="form-group bank-edit-group">
-                        <div class="flex-grow-1">
-                            <label>Ngân hàng nhận</label>
-                            <select class="form-control" id="bankName">
-                                <option value="ACB" data-logo="./assets/banks/miniacb.png">ACB</option>
-                                <option value="Vietcombank" data-logo="./assets/banks/minivietcombank.png">Vietcombank</option>
-                                <option value="VIETINBANK" data-logo="./assets/banks/minivietinbank.png">VIETINBANK</option>
-                                <option value="CAKE" data-logo="./assets/banks/minicake.png">CAKE</option>
-                                <option value="ABBANK" data-logo="./assets/banks/miniabbank.png">ABBANK</option>
-                                <option value="BIDV" data-logo="./assets/banks/minibidv.png">BIDV</option>
-                                <option value="MBBANK" data-logo="./assets/banks/minimbbank.png">MBBANK</option>
-                                <option value="TPBANK" data-logo="./assets/banks/minitp.png">TPBANK</option>
-                                <option value="AGRIBANK" data-logo="./assets/banks/miniagr.png">AGRIBANK</option>
-                                <option value="VPBANK" data-logo="./assets/banks/minivp.png">VPBANK</option>
-                                <option value="SHB" data-logo="./assets/banks/minishb.png">SHB</option>
-                                <option value="OCB" data-logo="./assets/banks/miniocb.png">OCB</option>
-                                <option value="VIB" data-logo="./assets/banks/minivib.png">VIB</option>
-                                <option value="HDBANK" data-logo="./assets/banks/minihdbank.png">HDBANK</option>
-                                <option value="EXIMBANK" data-logo="./assets/banks/minieximbank.png">EXIMBANK</option>
-                                <option value="BACABANK" data-logo="./assets/banks/minibacabank.png">BACABANK</option>
-                                <option value="MSB" data-logo="./assets/banks/minimsb.png">MSB</option>
-                                <option value="SAIGONBANK" data-logo="./assets/banks/minisaigonbank.png">SAIGONBANK</option>
-                                <option value="SCB" data-logo="./assets/banks/miniscb.png">SCB</option>
-                                <option value="SEABANK" data-logo="./assets/banks/miniseabank.png">SEABANK</option>
-                                <option value="SACOMBANK" data-logo="./assets/banks/minisacombank.png">SACOMBANK</option>
-                                <option value="STB" data-logo="./assets/banks/ministb.png">STB</option>
-                                <option value="TECHCOMBANK" data-logo="./assets/banks/minitechcombank.png">TECHCOMBANK</option>
-                            </select>
-                        </div>
+                        <label>Ngân hàng</label>
+                        <select class="form-control" id="bankName">
+                            <option value="ACB">ACB</option>
+                            <option value="Vietcombank">Vietcombank</option>
+                            <option value="BIDV">BIDV</option>
+                            <option value="Techcombank">Techcombank</option>
+                            <option value="MB Bank">MB Bank</option>
+                        </select>
                     </div>
 
                     <div class="form-group">
-                        <label>Nội dung</label>
+                        <label>Nội dung chuyển khoản</label>
                         <input type="text" class="form-control" id="description" value="MF991563">
                     </div>
 
+                    <div class="form-group">
+                        <label>Thời gian</label>
+                        <input type="text" class="form-control" id="time" value="13:01 - 09/01/2025">
+                    </div>
+
                     <div class="btn-group">
-                        <button type="submit" class="btn btn-primary">Tạo Bill</button>
-                        <button type="button" class="btn btn-secondary ms-2" onclick="window.location.href='fake-bill.html'">Quay lại</button>
+                        <button type="button" class="btn btn-primary" onclick="downloadBill()">Tải xuống</button>
+                        <button type="button" class="btn btn-secondary" onclick="window.location.href='../../fake-bill.html'">Quay lại</button>
                     </div>
                 </form>
             </div>
 
             <!-- Preview Section -->
-            <div class="bill-preview">
-                <div class="bill-text-overlay">
-                    <div class="time-text">
-                        <span id="transaction-date"></span>
-                        <span id="transaction-time"></span>
-                    </div>
-                    <!-- Các phần tử khác -->
-                </div>
-                <!-- Phần hình ảnh bill -->
-            </div>
             <div class="preview-section">
                 <div class="preview-container">
                     <div class="bill-container">
                         <!-- Hình nền -->
                         <img src="../../assets/Background/mbbank-bg.jpg" class="bill-background" alt="Bill background">
                         
-                        <!-- Các layer text chồng lên -->
+                        <!-- Text Overlay -->
                         <div class="bill-text-overlay">
                             <div class="amount-text" id="previewAmount"></div>
                             <div class="time-text" id="previewTime"></div>
@@ -136,7 +88,6 @@
                             <div class="receiver-name" id="previewReceiverName"></div>
                             <div class="bank-info" id="previewBankInfo"></div>
                             <div class="description" id="previewDescription"></div>
-                            <div class="sender-account" id="previewSenderAccount"></div>
                             <div class="transaction-id" id="previewTransactionId"></div>
                         </div>
                     </div>
@@ -145,12 +96,6 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../../js/utils.js"></script>
     <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script src="https://npmcdn.com/flatpickr/dist/l10n/vn.js"></script>
 </body>
 </html> 
