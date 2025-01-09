@@ -66,6 +66,17 @@ document.getElementById('receiverName').addEventListener('input', function(e) {
 });
 
 function downloadBill() {
-    // Thêm code để tải bill sau
-    alert('Tính năng đang được phát triển');
+    // Lấy phần tử chứa bill
+    const billElement = document.querySelector('.bill-container');
+    
+    // Chuyển đổi phần tử thành hình ảnh
+    html2canvas(billElement).then(canvas => {
+        // Tạo link tải xuống
+        const link = document.createElement('a');
+        link.download = 'mbbank-bill.png';
+        link.href = canvas.toDataURL('image/png');
+        
+        // Trigger click để tải xuống
+        link.click();
+    });
 }
