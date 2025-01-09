@@ -138,7 +138,7 @@
     top: 415px;
     width: 100%;
     text-align: center;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .bank-preview {
@@ -159,13 +159,13 @@
 }
 
 .bank-preview span {
-    font-size: 20px;
+    font-size: 18px;
     color: #57606A;
 }
 
 #bankNameDisplay {
     margin-right: 4px;
-    font-size: 25px;
+    font-size: 18px;
 }
 
 #previewTransactionId {
@@ -177,7 +177,7 @@
     top: 445px;
     width: 100%;
     text-align: center;
-    font-size: 20px;
+    font-size: 18px;
     color: #57606A;
 }
 
