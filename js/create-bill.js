@@ -13,9 +13,53 @@ document.addEventListener('DOMContentLoaded', function() {
     updatePreview();
 
     const bankSelect = document.getElementById('bankName');
-    // Trigger change event cho option đầu tiên
-    const event = new Event('change');
-    bankSelect.dispatchEvent(event);
+    console.log('bankSelect:', bankSelect);
+
+    const bankLogo = document.getElementById('bankLogo');
+    console.log('bankLogo:', bankLogo);
+
+    const bankNameDisplay = document.getElementById('bankNameDisplay');
+    console.log('bankNameDisplay:', bankNameDisplay);
+
+    // Object chứa đường dẫn logo của các ngân hàng
+    const bankLogos = {
+        'Vietcombank': 'assets/banks/vietcombank.png',
+        'BIDV': 'assets/banks/bidv.png',
+        'Techcombank': 'assets/banks/techcombank.png',
+        'ACB': 'assets/banks/acb.png',
+        'MB Bank': 'assets/banks/mbbank.png'
+    };
+
+    // Chỉ thực hiện khi tìm thấy tất cả các phần tử
+    if (bankSelect && bankLogo && bankNameDisplay) {
+        bankSelect.addEventListener('change', function() {
+            try {
+                const selectedOption = this.options[this.selectedIndex];
+                const logoPath = selectedOption.getAttribute('data-logo');
+                
+                console.log('Selected bank:', this.value);
+                console.log('Logo path:', logoPath);
+                
+                if (logoPath) {
+                    bankLogo.src = logoPath;
+                    bankLogo.style.display = 'inline-block';
+                }
+                
+                bankNameDisplay.textContent = this.value + ' -';
+            } catch (error) {
+                console.error('Lỗi khi cập nhật:', error);
+            }
+        });
+
+        // Kích hoạt sự kiện change
+        bankSelect.dispatchEvent(new Event('change'));
+    } else {
+        console.error('Thiếu một hoặc nhiều phần tử HTML cần thiết:', {
+            'bankSelect exists': !!bankSelect,
+            'bankLogo exists': !!bankLogo,
+            'bankNameDisplay exists': !!bankNameDisplay
+        });
+    }
 });
 
 function formatMoney(amount) {
@@ -85,15 +129,3 @@ function downloadBill() {
         link.click();
     });
 }
-
-document.getElementById('bankName').addEventListener('change', function() {
-    const selectedOption = this.options[this.selectedIndex];
-    const logoPath = selectedOption.getAttribute('data-logo');
-    const bankLogo = document.getElementById('bankLogo');
-    const bankNameDisplay = document.getElementById('bankNameDisplay');
-    
-    // Cập nhật logo
-    bankLogo.src = logoPath;
-    // Cập nhật tên ngân hàng
-    bankNameDisplay.textContent = selectedOption.text.replace('🏦 ', '');
-});
