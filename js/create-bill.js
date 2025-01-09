@@ -11,6 +11,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cập nhật preview lần đầu
     updatePreview();
+
+    const bankSelect = document.getElementById('bankName');
+    // Trigger change event cho option đầu tiên
+    const event = new Event('change');
+    bankSelect.dispatchEvent(event);
 });
 
 function formatMoney(amount) {
@@ -80,3 +85,15 @@ function downloadBill() {
         link.click();
     });
 }
+
+document.getElementById('bankName').addEventListener('change', function() {
+    const selectedOption = this.options[this.selectedIndex];
+    const logoPath = selectedOption.getAttribute('data-logo');
+    const bankLogo = document.getElementById('bankLogo');
+    const bankNameDisplay = document.getElementById('bankNameDisplay');
+    
+    // Cập nhật logo
+    bankLogo.src = logoPath;
+    // Cập nhật tên ngân hàng
+    bankNameDisplay.textContent = selectedOption.text.replace('🏦 ', '');
+});

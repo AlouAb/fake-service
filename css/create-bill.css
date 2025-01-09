@@ -169,3 +169,31 @@
     border-color: #1555b6;
     box-shadow: 0 0 0 0.2rem rgba(21, 85, 182, 0.25);
 }
+
+#bankName option {
+    padding: 5px;
+    display: flex;
+    align-items: center;
+}
+
+#bankName option::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.bank-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.bank-logo {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
