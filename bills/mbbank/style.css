@@ -264,3 +264,13 @@
 .flatpickr-calendar {
     font-size: 14px;
 }
+
+.transaction-info {
+    font-size: 14px;
+    color: #666;
+    margin: 10px 0;
+}
+
+.transaction-info span {
+    margin-right: 10px;
+}

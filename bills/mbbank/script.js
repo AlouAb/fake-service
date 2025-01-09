@@ -117,3 +117,35 @@ document.getElementById('transactionTime').addEventListener('change', updatePrev
 document.addEventListener('DOMContentLoaded', function() {
     updatePreview();
 });
+
+function updateDateTime() {
+    const now = new Date();
+    
+    // Format date và time theo định dạng của MB Bank
+    const date = now.toLocaleDateString('vi-VN', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+    }).replace(/\//g, '.');  // Thay / bằng .
+    
+    const time = now.toLocaleTimeString('vi-VN', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false
+    });
+    
+    // Gộp date và time theo format của MB Bank
+    const dateTimeText = `${date} ${time}`;
+    
+    // Tìm element có class time-text và cập nhật nội dung
+    const timeElement = document.querySelector('.time-text');
+    if (timeElement) {
+        timeElement.textContent = dateTimeText;
+    }
+}
+
+// Cập nhật thời gian mỗi phút
+setInterval(updateDateTime, 60000);
+
+// Chạy ngay khi trang load
+document.addEventListener('DOMContentLoaded', updateDateTime);
