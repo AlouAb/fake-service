@@ -1,1 +1,1 @@
-vvl6.com/fake-service.github.io
+ /fake-service.github.io
